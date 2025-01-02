@@ -1,0 +1,9 @@
+print('---后置断言脚本---')
+body=response.text
+print(body)
+res = response.json()
+print("获取全局变量："+str(envs))
+data = test.json_extract(res,'$..data.list')
+test.list_extract(data,'zh_name')
+code = test.json_extract(res,'$..code')
+test.assertion('相等',1,code)

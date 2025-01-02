@@ -1,0 +1,20 @@
+print('---前置脚本---')
+a=1
+b=2
+c=tool.add_number(a,b)
+test.save_global_variable("result",c)
+print(c)
+print("连接mysql数据库测试")
+res = db.learn.execute_all("select * from apptest.usermodel")
+print(res)
+print("连接多个mysql数据库测试")
+res2 = db.webcomics.execute_all("select * from apptest.postmodel")
+print(res2)
+
+print("连接mangodb数据库测试")
+res3 = db.mango.find_one_collection('mangaBox', "book", {"name": "The Law of Yama"})
+print(res3)
+print("连接redis数据库测试")
+con = db.red.connect(database="2")
+res4 = con.get("1000000000000001")
+print(res4)
